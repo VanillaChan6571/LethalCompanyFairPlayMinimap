@@ -61,6 +61,7 @@ namespace LethalCompanyMinimap.Component
         private GUIStyle tinyLabelStyle;
         private GUIStyle toggleStyle;
         private GUIStyle midToggleStyle;
+        private GUIStyle FakeDisabledToggleStyle;
 
         private void Awake()
         {
@@ -104,6 +105,7 @@ namespace LethalCompanyMinimap.Component
             }
             return players[index].name;
         }
+        
 
         public void SetMinimapTarget(int targetTransformIndex)
         {
@@ -113,51 +115,56 @@ namespace LethalCompanyMinimap.Component
             StartOfRound.Instance.mapScreenPlayerName.text = $"{prefix}: {StartOfRound.Instance.mapScreen.radarTargets[playerIndex].name}";
         }
 
-        private void IntitializeMenu()
-        {
-            if (menuStyle == null)
-            {
-                menuStyle = new GUIStyle(GUI.skin.box);
-                buttonStyle = new GUIStyle(GUI.skin.button);
-                labelStyle = new GUIStyle(GUI.skin.label);
-                midLabelStyle = new GUIStyle(GUI.skin.label);
-                tinyLabelStyle = new GUIStyle(GUI.skin.label);
-                toggleStyle = new GUIStyle(GUI.skin.toggle);
-                midToggleStyle = new GUIStyle(GUI.skin.toggle);
+private void IntitializeMenu()
+{
+    if (menuStyle == null)
+    {
+        menuStyle = new GUIStyle(GUI.skin.box);
+        buttonStyle = new GUIStyle(GUI.skin.button);
+        labelStyle = new GUIStyle(GUI.skin.label);
+        midLabelStyle = new GUIStyle(GUI.skin.label);
+        tinyLabelStyle = new GUIStyle(GUI.skin.label);
+        toggleStyle = new GUIStyle(GUI.skin.toggle);
+        midToggleStyle = new GUIStyle(GUI.skin.toggle);
 
-                menuStyle.normal.textColor = Color.white;
-                menuStyle.normal.background = MakeTex(2, 2, new Color(0.19f, 0.2f, 0.22f, .9f));
-                menuStyle.fontSize = 30;
-                menuStyle.normal.background.hideFlags = HideFlags.HideAndDontSave;
+        menuStyle.normal.textColor = Color.white;
+        menuStyle.normal.background = MakeTex(2, 2, new Color(0.19f, 0.2f, 0.22f, .9f));
+        menuStyle.fontSize = 30;
+        menuStyle.normal.background.hideFlags = HideFlags.HideAndDontSave;
 
-                buttonStyle.normal.textColor = Color.white;
-                buttonStyle.fontSize = 18;
+        buttonStyle.normal.textColor = Color.white;
+        buttonStyle.fontSize = 18;
 
-                labelStyle.normal.textColor = Color.white;
-                labelStyle.normal.background = MakeTex(2, 2, new Color(0.19f, 0.2f, 0.22f, 0.0f));
-                labelStyle.fontSize = 18;
-                labelStyle.alignment = TextAnchor.MiddleCenter;
-                labelStyle.normal.background.hideFlags = HideFlags.HideAndDontSave;
+        labelStyle.normal.textColor = Color.white;
+        labelStyle.normal.background = MakeTex(2, 2, new Color(0.19f, 0.2f, 0.22f, 0.0f));
+        labelStyle.fontSize = 18;
+        labelStyle.alignment = TextAnchor.MiddleCenter;
+        labelStyle.normal.background.hideFlags = HideFlags.HideAndDontSave;
 
-                midLabelStyle.normal.textColor = Color.white;
-                midLabelStyle.normal.background = MakeTex(2, 2, new Color(0.19f, 0.2f, 0.22f, 0.0f));
-                midLabelStyle.fontSize = 14;
-                midLabelStyle.alignment = TextAnchor.MiddleCenter;
-                midLabelStyle.normal.background.hideFlags = HideFlags.HideAndDontSave;
+        midLabelStyle.normal.textColor = Color.white;
+        midLabelStyle.normal.background = MakeTex(2, 2, new Color(0.19f, 0.2f, 0.22f, 0.0f));
+        midLabelStyle.fontSize = 14;
+        midLabelStyle.alignment = TextAnchor.MiddleCenter;
+        midLabelStyle.normal.background.hideFlags = HideFlags.HideAndDontSave;
 
-                tinyLabelStyle.normal.textColor = Color.white;
-                tinyLabelStyle.normal.background = MakeTex(2, 2, new Color(0.19f, 0.2f, 0.22f, 0.0f));
-                tinyLabelStyle.fontSize = 11;
-                tinyLabelStyle.alignment = TextAnchor.MiddleCenter;
-                tinyLabelStyle.normal.background.hideFlags = HideFlags.HideAndDontSave;
+        tinyLabelStyle.normal.textColor = Color.white;
+        tinyLabelStyle.normal.background = MakeTex(2, 2, new Color(0.19f, 0.2f, 0.22f, 0.0f));
+        tinyLabelStyle.fontSize = 11;
+        tinyLabelStyle.alignment = TextAnchor.MiddleCenter;
+        tinyLabelStyle.normal.background.hideFlags = HideFlags.HideAndDontSave;
 
-                toggleStyle.normal.textColor = Color.white;
-                toggleStyle.fontSize = 18;
+        toggleStyle.normal.textColor = Color.white;
+        toggleStyle.fontSize = 18;
 
-                midToggleStyle.normal.textColor = Color.white;
-                midToggleStyle.fontSize = 14;
-            }
-        }
+        midToggleStyle.normal.textColor = Color.white;
+        midToggleStyle.fontSize = 14;
+
+        // Create a custom GUIStyle for the disabled toggle boxes
+        FakeDisabledToggleStyle = new GUIStyle(toggleStyle);
+        FakeDisabledToggleStyle.normal.textColor = toggleStyle.normal.textColor;
+        FakeDisabledToggleStyle.fontSize = 18;
+    }
+}
 
         public int CalculateValidTargetIndex(int setRadarTargetIndex)
         {
@@ -356,13 +363,23 @@ namespace LethalCompanyMinimap.Component
                         }
                         break;
                     case 1:
-                        showLoots = GUI.Toggle(new Rect(guiCenterX, guiYpos + 90, ITEMWIDTH, 30), showLoots, "Show Loots", toggleStyle);
-                        showEnemies = GUI.Toggle(new Rect(guiCenterX, guiYpos + 130, ITEMWIDTH, 30), showEnemies, "Show Enemies", toggleStyle);
+                        bool previousShowLoots = showLoots;
+                        bool previousShowEnemies = showEnemies;
+                        bool previousShowTerminalCodes = showTerminalCodes;
+
+                        showLoots = GUI.Toggle(new Rect(guiCenterX, guiYpos + 90, ITEMWIDTH, 30), showLoots, "Show Loots", FakeDisabledToggleStyle);
+                        showEnemies = GUI.Toggle(new Rect(guiCenterX, guiYpos + 130, ITEMWIDTH, 30), showEnemies, "Show Enemies", FakeDisabledToggleStyle);
                         showLivePlayers = GUI.Toggle(new Rect(guiCenterX, guiYpos + 170, ITEMWIDTH, 30), showLivePlayers, "Show Live Players", toggleStyle);
                         showDeadPlayers = GUI.Toggle(new Rect(guiCenterX, guiYpos + 210, ITEMWIDTH, 30), showDeadPlayers, "Show Dead Players", toggleStyle);
                         showRadarBoosters = GUI.Toggle(new Rect(guiCenterX, guiYpos + 250, ITEMWIDTH, 30), showRadarBoosters, "Show Radar Boosters", toggleStyle);
-                        showTerminalCodes = GUI.Toggle(new Rect(guiCenterX, guiYpos + 290, ITEMWIDTH, 30), showTerminalCodes, "Show Terminal Codes", toggleStyle);
+                        showTerminalCodes = GUI.Toggle(new Rect(guiCenterX, guiYpos + 290, ITEMWIDTH, 30), showTerminalCodes, "Show Terminal Codes", FakeDisabledToggleStyle);
                         showShipArrow = GUI.Toggle(new Rect(guiCenterX, guiYpos + 330, ITEMWIDTH, 30), showShipArrow, "Show Ship Arrow", toggleStyle);
+
+                        // Revert the toggle state changes for the specific toggles
+                        showLoots = previousShowLoots;
+                        showEnemies = previousShowEnemies;
+                        showTerminalCodes = previousShowTerminalCodes;
+
                         break;
                     case 2:
                         List<TransformAndName> players = StartOfRound.Instance != null ? StartOfRound.Instance.mapScreen.radarTargets : new List<TransformAndName>();

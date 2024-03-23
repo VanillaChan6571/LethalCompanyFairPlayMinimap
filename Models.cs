@@ -43,12 +43,12 @@ namespace LethalCompanyMinimap
 
         public HostSettingsToSync()
         {
-            ShowLoots = true;
-            ShowEnemies = true;
+            ShowLoots = false;
+            ShowEnemies = false;
             ShowLivePlayers = true;
             ShowDeadPlayers = true;
             ShowRadarBoosters = true;
-            ShowTerminalCodes = true;
+            ShowTerminalCodes = false;
         }
 
         public void Sync()
@@ -118,15 +118,15 @@ namespace LethalCompanyMinimap
                 }
                 else
                 {
-                    return null;
+                    settingValue= false;
                 }
                 switch (rawSettingKey)
                 {
                     case "loots":
-                        hostSettings.ShowLoots = settingValue;
+                        hostSettings.ShowLoots = false;
                         break;
                     case "enemies":
-                        hostSettings.ShowEnemies = settingValue;
+                        hostSettings.ShowEnemies = false;
                         break;
                     case "livePlayers":
                         hostSettings.ShowLivePlayers = settingValue;
@@ -138,7 +138,7 @@ namespace LethalCompanyMinimap
                         hostSettings.ShowRadarBoosters = settingValue;
                         break;
                     case "terminalCodes":
-                        hostSettings.ShowTerminalCodes = settingValue;
+                        hostSettings.ShowTerminalCodes = false;
                         break;
                     default:
                         return null;

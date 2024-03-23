@@ -11,11 +11,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("LethalCompanyMinimap")]
-[assembly: AssemblyDescription("A Minimap mod for Lethal Company")]
+[assembly: AssemblyDescription("A Minimap FairPlay Edition mod for Lethal Company")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Tyzeron")]
+[assembly: AssemblyCompany("Tyzeron + VanillaChanny")]
 [assembly: AssemblyProduct("LethalCompanyMinimap")]
-[assembly: AssemblyCopyright("Copyright © Tyzeron 2023")]
+[assembly: AssemblyCopyright("Copyright © Tyzeron 2023 + VanillaChanny 2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -38,4 +38,4 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.5")]
-[assembly: AssemblyFileVersion("1.0.5")]
+[assembly: AssemblyFileVersion("1.0.6")]

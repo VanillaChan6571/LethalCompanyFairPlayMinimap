@@ -17,10 +17,10 @@ namespace LethalCompanyMinimap
     public class MinimapMod: BaseUnityPlugin
     {
         public const string modGUID = "LethalCompanyMinimap";
-        public const string modName = "Minimap";
-        public const string modVersion = "1.0.5";
-        public const string modAuthor = "Tyzeron";
-        public const string modRepository = "tyzeron/LethalCompanyMinimap";
+        public const string modName = "Minimap (FairPlay Edition)";
+        public const string modVersion = "1.0.6";
+        public const string modAuthor = "Tyzeron + VanillaChanny";
+        public const string modRepository = "VanillaChan6571/LethalCompanyFairPlayMinimap";
 
         public static MouseAndKeyboard defaultGuiKey = MouseAndKeyboard.F1;
         public static MouseAndKeyboard defaultToggleMinimapKey = MouseAndKeyboard.F2;
@@ -108,12 +108,12 @@ namespace LethalCompanyMinimap
             minimapYPosConfig = Config.Bind("Basic Settings", "Y Offset", defaultYoffset, "Shifts the Minimap position vertically");
             minimapZoomConfig = Config.Bind("Basic Settings", "Map Zoom", defaultMapZoom, "Adjust the Map zoom level");
             brightnessConfig = Config.Bind("Basic Settings", "Brightness", defaultBrightness, "Adjust the brightness level");
-            showLootsConfig = Config.Bind("Minimap Icons", "Show Loots", true, "Toggles visibility of loots (small triangles) on your Minimap");
-            showEnemiesConfig = Config.Bind("Minimap Icons", "Show Enemies", true, "Toggles visibility of enemies (red circles) on your Minimap");
+            showLootsConfig = Config.Bind("Minimap Icons", "Show Loots", false, "Toggles visibility of loots (small triangles) on your Minimap");
+            showEnemiesConfig = Config.Bind("Minimap Icons", "Show Enemies", false, "Toggles visibility of enemies (red circles) on your Minimap");
             showLivePlayersConfig = Config.Bind("Minimap Icons", "Show Live Players", true, "Toggles visibility of live players (cyan circles) on your Minimap");
             showDeadPlayersConfig = Config.Bind("Minimap Icons", "Show Dead Players", true, "Toggles visibility of dead players (greyed-out cyan circles) on your Minimap");
             showRadarBoostersConfig = Config.Bind("Minimap Icons", "Show Radar Boosters", true, "Toggles visibility of radar boosters (blue circles) on your Minimap");
-            showTerminalCodesConfig = Config.Bind("Minimap Icons", "Show Terminal Codes", true, "Toggles visibility of terminal codes on your Minimap");
+            showTerminalCodesConfig = Config.Bind("Minimap Icons", "Show Terminal Codes", false, "Toggles visibility of terminal codes on your Minimap");
             showShipArrowConfig = Config.Bind("Minimap Icons", "Show Ship Arrow", true, "Toggles visibility of the arrow pointing to the Ship");
             freezePlayerIndexConfig = Config.Bind("Advance Settings", "Override Ship Controls", false, "Disables the ability to change the Minimap focus through the ship control panel, allowing Minimap focus changes only through the mod menu");
         }
@@ -131,12 +131,12 @@ namespace LethalCompanyMinimap
             minimapGUI.minimapYPos = minimapYPosConfig.Value;
             minimapGUI.minimapZoom = minimapZoomConfig.Value;
             minimapGUI.brightness = brightnessConfig.Value;
-            minimapGUI.showLoots = showLootsConfig.Value;
-            minimapGUI.showEnemies = showEnemiesConfig.Value;
+            minimapGUI.showLoots = false; // Force disable "Show Loots"
+            minimapGUI.showEnemies = false; // Force disable "Enemies"
             minimapGUI.showLivePlayers = showLivePlayersConfig.Value;
             minimapGUI.showDeadPlayers = showDeadPlayersConfig.Value;
             minimapGUI.showRadarBoosters = showRadarBoostersConfig.Value;
-            minimapGUI.showTerminalCodes = showTerminalCodesConfig.Value;
+            minimapGUI.showTerminalCodes = false; // Force disable "TerminalCodes"
             minimapGUI.showShipArrow = showShipArrowConfig.Value;
             minimapGUI.freezePlayerIndex = freezePlayerIndexConfig.Value;
         }
@@ -154,12 +154,12 @@ namespace LethalCompanyMinimap
             minimapYPosConfig.Value = minimapGUI.minimapYPos;
             minimapZoomConfig.Value = minimapGUI.minimapZoom;
             brightnessConfig.Value = minimapGUI.brightness;
-            showLootsConfig.Value = minimapGUI.showLoots;
-            showEnemiesConfig.Value = minimapGUI.showEnemies;
+            showLootsConfig.Value = false; // Force disable "Show Loots"
+            showEnemiesConfig.Value = false; // Force disable "Show Enemies"
             showLivePlayersConfig.Value = minimapGUI.showLivePlayers;
             showDeadPlayersConfig.Value = minimapGUI.showDeadPlayers;
             showRadarBoostersConfig.Value = minimapGUI.showRadarBoosters;
-            showTerminalCodesConfig.Value = minimapGUI.showTerminalCodes;
+            showTerminalCodesConfig.Value = false; // Force disable "Show Terminal Codes"
             showShipArrowConfig.Value = minimapGUI.showShipArrow;
             freezePlayerIndexConfig.Value = minimapGUI.freezePlayerIndex;
         }

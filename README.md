@@ -1,6 +1,6 @@
-# Lethal Company Minimap
+# Lethal Company Minimap - Fair Play Edition
 
-Introducing a **Minimap mod** for Lethal Company, a dynamic solution designed 
+RE-Introducing a **Minimap mod** for Lethal Company, a dynamic solution designed 
 to enhance your gaming experience. This mod seamlessly integrates a persistent 
 minimap on your screen, ensuring that you're never left in the dark, whether 
 you're playing solo or in co-op mode.
@@ -11,9 +11,6 @@ typically be provided by a partner stationed at the ship's terminal.
 In co-op mode, the Minimap mod ensures that everyone can join in the excitement 
 of venturing into the building, eliminating the need for one player to stay 
 back at the ship.
-
-<img alt="Minimap Mod Logo" src="Images/minimap-logo-1.png" width="272" 
-style="display: block; margin-left: auto; margin-right: auto;" />
 
 
 # Usage
@@ -36,8 +33,6 @@ affecting the Minimap or ship map of other players.
 
 This is a client-sided mod, meaning that other players don't need to have this 
 mod installed.
-
-<!-- ![Screenshot showcasing the Minimap](Images/minimap-showcase.png) -->
 
 
 # Features
@@ -63,11 +58,13 @@ mod installed.
 - All settings configurable via a user-friendly in-game GUI
 - All configurable settings saved across sessions
 - Toggle visibility of different Minimap icons
-    - Loots, Enemies, Alived Players, Dead Players, Terminal Codes, 
+    - Alived Players, Dead Players
 Radar Boosters, and the Ship Arrow
 - Informs if the mod is outdated and a newer version is available
 
-![Minimap GUI](Images/minimap-gui.png)
+![Minimap GUI](https://raw.githubusercontent.com/tyzeron/LethalCompanyMinimap/main/Images/minimap-gui.png)
+
+- Please note, the option to toggle Scrap, Enemies or Terminal Codes is still there but will not "Enable" internally ;3
 
 
 # Installation
@@ -80,31 +77,8 @@ Radar Boosters, and the Ship Arrow
     - The `BepInEx` and `plugins` folder should have been generated in the previous step
     - **Example:** `C:\Program Files\Steam\steamapps\common\Lethal Company\BepInEx\plugins`
 
-4. Download the Minimap mod from the [Nexus Mods](https://www.nexusmods.com/lethalcompany/mods/18) or the [Thunderstore](https://thunderstore.io/c/lethal-company/p/Tyzeron/Minimap/)
+4. Download the Minimap mod, unzip it, and navigate to `./BepInEx/plugins`
 
-5. Copy the downloaded **DLL file** (ex. `Minimap-v1.x.x.dll`) to the `plugins` folder
+5. Copy the **DLL file** (ex. `Minimap-v1.x.x.dll`) to the `plugins` folder
 
-6. Launch the **Lethal Comanpy** game and enjoy your new Minimap mod :)
-
-
-# Dev Notes
-
-This Minimap mod was a **weekend project**, so the code might be a little messy 
-due to the rapid development focus. In line with Donald Knuth's philosophy that 
-`early optimization is the root of all evil`, the initial aim was functionality 
-rather than optimization.
-
-Your feedback for improving and optimizing the code is warmly welcomed.
-
-
-# Contact
-
-I am primarily active on Discord, but my **DMs are closed**. So the most 
-effective way to get in touch with me is via the 
-[Trilobite Tavern](https://discord.gg/trilobitetavern) Discord Server's 
-**support ticket** (or just ping me in the **General Chat**).
-
-I serve as a `System Administrator` on that server and am highly active there. 
-I have decided to take this approach as it allows me to keep my focus on mod 
-development, without the added responsibility of owning and maintaining 
-my own Discord server.
+6. Launch the **Lethal Comanpy** game and enjoy your new Minimap Fair Play Edition mod ;3

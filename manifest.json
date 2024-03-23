@@ -1,0 +1,8 @@
+{
+    "name": "Minimap",
+    "description": "The first fully customizable client-sided (FairPlay Edition) Minimap mod for Lethal Company. All configurations can be managed via a user-friendly in-game GUI. Icons, such as enemies or loots, can be hidden from the map. Suitable for both solo and co-op players!",
+    "version_number": "1.0.6",
+    "website_url": "http://lethalcompany.tyzeron.com/",
+    "dependencies": [
+    ]
+}
