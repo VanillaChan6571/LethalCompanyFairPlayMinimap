@@ -16,21 +16,21 @@ namespace LethalCompanyMinimap
     [BepInPlugin(modGUID, modName, modVersion)]
     public class MinimapMod: BaseUnityPlugin
     {
-        public const string modGUID = "LethalCompanyMinimap";
+        public const string modGUID = "Minimap-Fair-Play";
         public const string modName = "Minimap (FairPlay Edition)";
-        public const string modVersion = "1.0.6";
-        public const string modAuthor = "Tyzeron + VanillaChanny";
+        public const string modVersion = "1.0.7";
+        public const string modAuthor = "VanillaChanny + Tyzeron";
         public const string modRepository = "VanillaChan6571/LethalCompanyFairPlayMinimap";
 
         public static MouseAndKeyboard defaultGuiKey = MouseAndKeyboard.F1;
         public static MouseAndKeyboard defaultToggleMinimapKey = MouseAndKeyboard.F2;
         public static MouseAndKeyboard defaultToggleOverrideKey = MouseAndKeyboard.F3;
         public static MouseAndKeyboard defaultSwitchTargetKey = MouseAndKeyboard.F4;
-        public const int defaultMinimapSize = 200;
+        public const int defaultMinimapSize = 160;
         public const float defaultXoffset = 0f;
         public const float defaultYoffset = 0f;
-        public const float defaultMapZoom = 19.7f;
-        public const float defaultBrightness = 0f;
+        public const float defaultMapZoom = 15.4f;
+        public const float defaultBrightness = 5f;
 
         private static ConfigEntry<MouseAndKeyboard> guiKeyConfig;
         private static ConfigEntry<MouseAndKeyboard> toggleMinimapKeyConfig;
@@ -139,6 +139,10 @@ namespace LethalCompanyMinimap
             minimapGUI.showTerminalCodes = false; // Force disable "TerminalCodes"
             minimapGUI.showShipArrow = showShipArrowConfig.Value;
             minimapGUI.freezePlayerIndex = freezePlayerIndexConfig.Value;
+            //Adds Dummmy Nullable Boxes to be true fakely. Hehehe~
+            minimapGUI.TheNekoWasHereAsThisIsANullableDummyBox1 = true;
+            minimapGUI.TheNekoWasHereAsThisIsANullableDummyBox2 = true;
+            minimapGUI.TheNekoWasHereAsThisIsANullableDummyBox3 = true;
         }
 
         public void SyncConfigFromGUI()
@@ -154,12 +158,12 @@ namespace LethalCompanyMinimap
             minimapYPosConfig.Value = minimapGUI.minimapYPos;
             minimapZoomConfig.Value = minimapGUI.minimapZoom;
             brightnessConfig.Value = minimapGUI.brightness;
-            showLootsConfig.Value = false; // Force disable "Show Loots"
-            showEnemiesConfig.Value = false; // Force disable "Show Enemies"
+            //showLootsConfig.Value = false; // Removes "Show Loots" from config
+            //showEnemiesConfig.Value = false; // Removes "Show Enemies" from config
             showLivePlayersConfig.Value = minimapGUI.showLivePlayers;
             showDeadPlayersConfig.Value = minimapGUI.showDeadPlayers;
             showRadarBoostersConfig.Value = minimapGUI.showRadarBoosters;
-            showTerminalCodesConfig.Value = false; // Force disable "Show Terminal Codes"
+            //showTerminalCodesConfig.Value = false; // Removes "Show Terminal Codes" from config
             showShipArrowConfig.Value = minimapGUI.showShipArrow;
             freezePlayerIndexConfig.Value = minimapGUI.freezePlayerIndex;
         }

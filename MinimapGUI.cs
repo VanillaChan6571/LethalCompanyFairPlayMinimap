@@ -39,6 +39,9 @@ namespace LethalCompanyMinimap.Component
         public bool showTerminalCodes;
         public bool showShipArrow;
         public bool freezePlayerIndex;
+        public bool TheNekoWasHereAsThisIsANullableDummyBox1;
+        public bool TheNekoWasHereAsThisIsANullableDummyBox2;
+        public bool TheNekoWasHereAsThisIsANullableDummyBox3;
 
         private string[] navbarStr = { "Minimap", "Icons", "Select Target", "Keybinds" };
         private readonly KeyboardShortcut escapeKey = new KeyboardShortcut(KeyCode.Escape);
@@ -61,7 +64,6 @@ namespace LethalCompanyMinimap.Component
         private GUIStyle tinyLabelStyle;
         private GUIStyle toggleStyle;
         private GUIStyle midToggleStyle;
-        private GUIStyle FakeDisabledToggleStyle;
 
         private void Awake()
         {
@@ -158,11 +160,6 @@ private void IntitializeMenu()
 
         midToggleStyle.normal.textColor = Color.white;
         midToggleStyle.fontSize = 14;
-
-        // Create a custom GUIStyle for the disabled toggle boxes
-        FakeDisabledToggleStyle = new GUIStyle(toggleStyle);
-        FakeDisabledToggleStyle.normal.textColor = toggleStyle.normal.textColor;
-        FakeDisabledToggleStyle.fontSize = 18;
     }
 }
 
@@ -363,23 +360,13 @@ private void IntitializeMenu()
                         }
                         break;
                     case 1:
-                        bool previousShowLoots = showLoots;
-                        bool previousShowEnemies = showEnemies;
-                        bool previousShowTerminalCodes = showTerminalCodes;
-
-                        showLoots = GUI.Toggle(new Rect(guiCenterX, guiYpos + 90, ITEMWIDTH, 30), showLoots, "Show Loots", FakeDisabledToggleStyle);
-                        showEnemies = GUI.Toggle(new Rect(guiCenterX, guiYpos + 130, ITEMWIDTH, 30), showEnemies, "Show Enemies", FakeDisabledToggleStyle);
+                        TheNekoWasHereAsThisIsANullableDummyBox1 = GUI.Toggle(new Rect(guiCenterX, guiYpos + 90, ITEMWIDTH, 30), TheNekoWasHereAsThisIsANullableDummyBox1, "Show Loots", toggleStyle);
+                        TheNekoWasHereAsThisIsANullableDummyBox2 = GUI.Toggle(new Rect(guiCenterX, guiYpos + 130, ITEMWIDTH, 30), TheNekoWasHereAsThisIsANullableDummyBox2, "Show Enemies", toggleStyle);
                         showLivePlayers = GUI.Toggle(new Rect(guiCenterX, guiYpos + 170, ITEMWIDTH, 30), showLivePlayers, "Show Live Players", toggleStyle);
                         showDeadPlayers = GUI.Toggle(new Rect(guiCenterX, guiYpos + 210, ITEMWIDTH, 30), showDeadPlayers, "Show Dead Players", toggleStyle);
                         showRadarBoosters = GUI.Toggle(new Rect(guiCenterX, guiYpos + 250, ITEMWIDTH, 30), showRadarBoosters, "Show Radar Boosters", toggleStyle);
-                        showTerminalCodes = GUI.Toggle(new Rect(guiCenterX, guiYpos + 290, ITEMWIDTH, 30), showTerminalCodes, "Show Terminal Codes", FakeDisabledToggleStyle);
+                        TheNekoWasHereAsThisIsANullableDummyBox3 = GUI.Toggle(new Rect(guiCenterX, guiYpos + 290, ITEMWIDTH, 30), TheNekoWasHereAsThisIsANullableDummyBox3, "Show Terminal Codes", toggleStyle);
                         showShipArrow = GUI.Toggle(new Rect(guiCenterX, guiYpos + 330, ITEMWIDTH, 30), showShipArrow, "Show Ship Arrow", toggleStyle);
-
-                        // Revert the toggle state changes for the specific toggles
-                        showLoots = previousShowLoots;
-                        showEnemies = previousShowEnemies;
-                        showTerminalCodes = previousShowTerminalCodes;
-
                         break;
                     case 2:
                         List<TransformAndName> players = StartOfRound.Instance != null ? StartOfRound.Instance.mapScreen.radarTargets : new List<TransformAndName>();

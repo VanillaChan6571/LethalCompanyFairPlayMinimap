@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LethalCompanyMinimap</RootNamespace>
-    <AssemblyName>LethalCompanyMinimap</AssemblyName>
+    <AssemblyName>LethalMinimap-FairPlay</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
