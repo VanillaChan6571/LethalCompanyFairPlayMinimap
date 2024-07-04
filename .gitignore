@@ -399,3 +399,7 @@ FodyWeavers.xsd
 
 # Visual Studio
 *.sln
+.idea/workspace.xml
+.idea/LethalCompanyFairPlayMinimap.iml
+.idea/modules.xml
+.idea/vcs.xml
