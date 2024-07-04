@@ -18,7 +18,7 @@ namespace LethalCompanyMinimap
     {
         public const string modGUID = "Minimap-Fair-Play";
         public const string modName = "Minimap (FairPlay Edition)";
-        public const string modVersion = "1.0.7";
+        public const string modVersion = "[v50]-1.0.8";
         public const string modAuthor = "VanillaChanny + Tyzeron";
         public const string modRepository = "VanillaChan6571/LethalCompanyFairPlayMinimap";
 
