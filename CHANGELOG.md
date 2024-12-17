@@ -1,8 +1,43 @@
+### 1.2.0.1 Beta Build / GitHub RELEASE
+- Built Against v69 of Lethal Company, Turrets Successfully Hidden >:3
+- Still no working methods for Landmines...
+- Will release to Thunderstore 12/23/2024
+
+### 1.2.0 Beta Build NO RELEASE
+- Built Against v69 of Lethal Company, Turrets Added to the Hidden List.
+- Still no working methods for Landmines...
+
+### 1.1.3 Beta Build NO RELEASE
+- Built Against v69 of Lethal Company, attempting to add landmines / turrents to hidden list... WIP
+
+### 1.1.2 Beta Build NO RELEASE
+- Built Against v69 of Lethal Company, attempting to add landmines / turrents to hidden list... WIP
+
+### 1.1.1 (Fair Play Edition)
+- Built Against v69 of Lethal Company. Should be working as Intended. (Still working on Landmines and Turrents as a TODO)
+
+### 1.1.0 Beta Build NO RELEASE
+- Built Against v60 of Lethal Company, attempting to add landmines / turrents to hidden list... WIP
+
+### 1.0.9 (Fair Play Edition)
+- Built Against v56 of Lethal Company (Fixed invalid Version Type cause the mod not to load.)
+
+### 1.0.8 (Fair Play Edition)
+- Built Against v50 of Lethal Company (There was no issues using 1.0.7 for v50)
+- Changed Aspect Ratio to 4:3 (Seems to improve FPS a bit)
+- As always. Want the CHEATERS Edition, you can install FeralMinimap or OG Minimap by (Tyzeron) where the loots/enemies can be seen.
+- Do not post issues that were purposely removed in the code for FAIR PLAY mode/edition.
+
+### 1.0.7 (Fair Play Edition)
+- No Longer Using the FakeDisabled instead now uses DumyNullableCheckBoxes. (This means it can be toggled like other boxes)
+- Made DumyNullableCheckBoxes set to true by default. (The issue was there wasn't a way but I found an easier and more lazy way and works great!)
+- Rename the LethalCompanyMinimap.cfg to **Minimap-Fair-Play.cfg**
+- The Config will now skip _[Scraps, Terminal Codes & Enemies]_ even if the player sneakily set this to true it will remain false.
+
 ### 1.0.6 (Fair Play Edition)
 - Removed the ability to see the following:
-Scraps, Terminal Codes & Enemies
-- This is the Fair Play Edition to the mod called Minimap Mod.
-
+_[Scraps, Terminal Codes & Enemies]_
+- This is the **Fair Play Edition** from the OG Minimap Mod, that been forked to create this mod.
 
 ### 1.0.5 (Cheat Edition)
 
