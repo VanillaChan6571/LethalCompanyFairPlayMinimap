@@ -33,6 +33,8 @@ namespace LethalCompanyMinimap.Component
         public float brightness;
         public bool showLoots;
         public bool showEnemies;
+        public bool showTurrets;
+        public bool showLandmines;
         public bool showLivePlayers;
         public bool showDeadPlayers;
         public bool showRadarBoosters;
@@ -42,6 +44,8 @@ namespace LethalCompanyMinimap.Component
         public bool TheNekoWasHereAsThisIsANullableDummyBox1;
         public bool TheNekoWasHereAsThisIsANullableDummyBox2;
         public bool TheNekoWasHereAsThisIsANullableDummyBox3;
+        public bool TheNekoWasHereAsThisIsANullableDummyBox4;
+        public bool TheNekoWasHereAsThisIsANullableDummyBox5;
 
         private string[] navbarStr = { "Minimap", "Icons", "Select Target", "Keybinds" };
         private readonly KeyboardShortcut escapeKey = new KeyboardShortcut(KeyCode.Escape);
@@ -362,6 +366,8 @@ private void IntitializeMenu()
                     case 1:
                         TheNekoWasHereAsThisIsANullableDummyBox1 = GUI.Toggle(new Rect(guiCenterX, guiYpos + 90, ITEMWIDTH, 30), TheNekoWasHereAsThisIsANullableDummyBox1, "Show Loots", toggleStyle);
                         TheNekoWasHereAsThisIsANullableDummyBox2 = GUI.Toggle(new Rect(guiCenterX, guiYpos + 130, ITEMWIDTH, 30), TheNekoWasHereAsThisIsANullableDummyBox2, "Show Enemies", toggleStyle);
+                        TheNekoWasHereAsThisIsANullableDummyBox4 = GUI.Toggle(new Rect(guiCenterX, guiYpos + 370, ITEMWIDTH, 30), TheNekoWasHereAsThisIsANullableDummyBox4, "Show Turrets", toggleStyle);
+                        TheNekoWasHereAsThisIsANullableDummyBox5 = GUI.Toggle(new Rect(guiCenterX, guiYpos + 410, ITEMWIDTH, 30), TheNekoWasHereAsThisIsANullableDummyBox5, "Show Landmines [WIP]", toggleStyle);
                         showLivePlayers = GUI.Toggle(new Rect(guiCenterX, guiYpos + 170, ITEMWIDTH, 30), showLivePlayers, "Show Live Players", toggleStyle);
                         showDeadPlayers = GUI.Toggle(new Rect(guiCenterX, guiYpos + 210, ITEMWIDTH, 30), showDeadPlayers, "Show Dead Players", toggleStyle);
                         showRadarBoosters = GUI.Toggle(new Rect(guiCenterX, guiYpos + 250, ITEMWIDTH, 30), showRadarBoosters, "Show Radar Boosters", toggleStyle);

@@ -100,7 +100,7 @@
     <Compile Include="Patches\LandminePatch.cs" />
     <Compile Include="Patches\TimeOfDayPatch.cs" />
     <Compile Include="ModHotkey.cs" />
-    <Compile Include="Patches\TurrentPatch.cs" />
+    <Compile Include="Patches\TurretPatch.cs" />
     <Compile Include="VersionChecker.cs" />
     <Compile Include="MinimapGUI.cs" />
     <Compile Include="Patches\RadarBoosterItemPatch.cs" />

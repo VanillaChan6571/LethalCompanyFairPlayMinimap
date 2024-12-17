@@ -403,3 +403,6 @@ FodyWeavers.xsd
 .idea/LethalCompanyFairPlayMinimap.iml
 .idea/modules.xml
 .idea/vcs.xml
+.idea/.name
+.idea/discord.xml
+.idea/php.xml

@@ -18,7 +18,7 @@ namespace LethalCompanyMinimap
     {
         public const string modGUID = "Minimap-Fair-Play";
         public const string modName = "Minimap (FairPlay Edition)";
-        public const string modVersion = "1.1.1";
+        public const string modVersion = "1.2.1";
         public const string modAuthor = "[v69] VanillaChanny + Tyzeron";
         public const string modRepository = "VanillaChan6571/LethalCompanyFairPlayMinimap";
 
@@ -45,6 +45,8 @@ namespace LethalCompanyMinimap
         private static ConfigEntry<float> brightnessConfig;
         private static ConfigEntry<bool> showLootsConfig;
         private static ConfigEntry<bool> showEnemiesConfig;
+        private static ConfigEntry<bool> showTurretConfig;
+        private static ConfigEntry<bool> showLandminesConfig;
         private static ConfigEntry<bool> showLivePlayersConfig;
         private static ConfigEntry<bool> showDeadPlayersConfig;
         private static ConfigEntry<bool> showRadarBoostersConfig;
@@ -82,6 +84,8 @@ namespace LethalCompanyMinimap
             harmony.PatchAll(typeof(HUDManagerPatch));
             harmony.PatchAll(typeof(TimeOfDayPatch));
             harmony.PatchAll(typeof(DeadBodyInfoPatch));
+            harmony.PatchAll(typeof(TurretPatch));
+            harmony.PatchAll(typeof(LandminePatch));
 
             // Initialize Minimap Mod Menu GUI
             GameObject minimapGUIObject = new GameObject("MinimapGUI");
@@ -110,6 +114,8 @@ namespace LethalCompanyMinimap
             brightnessConfig = Config.Bind("Basic Settings", "Brightness", defaultBrightness, "Adjust the brightness level");
             showLootsConfig = Config.Bind("Minimap Icons", "Show Loots", false, "Toggles visibility of loots (small triangles) on your Minimap");
             showEnemiesConfig = Config.Bind("Minimap Icons", "Show Enemies", false, "Toggles visibility of enemies (red circles) on your Minimap");
+            showTurretConfig = Config.Bind("Turret Icons", "Show Turret", false, "Toggles visibility of Turret on your Minimap");
+            showLandminesConfig = Config.Bind("Landmine Icons", "Show Landmine", false, "Toggles visibility of Landmines on your Minimap");
             showLivePlayersConfig = Config.Bind("Minimap Icons", "Show Live Players", true, "Toggles visibility of live players (cyan circles) on your Minimap");
             showDeadPlayersConfig = Config.Bind("Minimap Icons", "Show Dead Players", true, "Toggles visibility of dead players (greyed-out cyan circles) on your Minimap");
             showRadarBoostersConfig = Config.Bind("Minimap Icons", "Show Radar Boosters", true, "Toggles visibility of radar boosters (blue circles) on your Minimap");
@@ -143,6 +149,8 @@ namespace LethalCompanyMinimap
             minimapGUI.TheNekoWasHereAsThisIsANullableDummyBox1 = true;
             minimapGUI.TheNekoWasHereAsThisIsANullableDummyBox2 = true;
             minimapGUI.TheNekoWasHereAsThisIsANullableDummyBox3 = true;
+            minimapGUI.TheNekoWasHereAsThisIsANullableDummyBox4 = true;
+            minimapGUI.TheNekoWasHereAsThisIsANullableDummyBox5 = true;
         }
 
         public void SyncConfigFromGUI()
@@ -160,6 +168,8 @@ namespace LethalCompanyMinimap
             brightnessConfig.Value = minimapGUI.brightness;
             //showLootsConfig.Value = false; // Removes "Show Loots" from config
             //showEnemiesConfig.Value = false; // Removes "Show Enemies" from config
+            //showTurretConfig.Value = false; // Removes "Show Turret" from config
+            //showLandminesConfig.Value = false; // Removes "Show Landmine" from config
             showLivePlayersConfig.Value = minimapGUI.showLivePlayers;
             showDeadPlayersConfig.Value = minimapGUI.showDeadPlayers;
             showRadarBoostersConfig.Value = minimapGUI.showRadarBoosters;
